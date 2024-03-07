@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Dispalying clock
+hour=0
+while [ $hour -le 12 ]
+do
+	minute=1
+	echo -n 'Hour: '
+	echo $hour
+	while [ $minute -le 59 ]
+	do
+		echo $minute
+		minute=$(( ++minute ))
+	done
+	hour=$(( ++hour ))
+done	
