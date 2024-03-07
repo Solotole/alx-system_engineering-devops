@@ -8,14 +8,14 @@ if [ -e "$file1" ]; then
 		if [ -f "$file1" ]; then
 			echo 'school is a regular file'
 		else
-			:
+			true
 		fi
 	else
 		echo 'school file is empty'
 		if [ -f "$file1" ]; then
 			echo 'scholol is a regular file'
 		else
-			:
+			true
 		fi
 	fi
 else
