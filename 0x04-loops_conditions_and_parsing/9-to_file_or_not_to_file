@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# file confirmation script
+file1="./school"
+if [ -e "$file1" ]; then
+	echo 'school file exists'
+	if [ -s "$file1" ]; then
+		echo 'school file is not empty'
+		if [ -f "$file1" ]; then
+			echo 'school is a regular file'
+		else
+			echo -n ''
+		fi
+	else
+		echo 'school file is empty'
+		if [ -f "$file1" ]; then
+			echo 'scholol is a regular file'
+		else
+			echo -n ''
+		fi
+	fi
+else
+	echo 'school file does not exist'
+fi
