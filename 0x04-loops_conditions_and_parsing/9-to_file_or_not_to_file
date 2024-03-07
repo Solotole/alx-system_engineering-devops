@@ -15,7 +15,7 @@ if [ -e "$file1" ]; then
 		if [ -f "$file1" ]; then
 			echo 'scholol is a regular file'
 		else
-			echo -n ''
+			echo ''
 		fi
 	fi
 else
