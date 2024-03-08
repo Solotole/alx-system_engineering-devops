@@ -3,5 +3,5 @@
 process=$(pgrep "bash ./4-to_infinity_and_beyond" -f)
 if [ -n "$process" ]
 then
-	kill -SIGTERM $process
+	kill -SIGTERM "$process"
 fi
