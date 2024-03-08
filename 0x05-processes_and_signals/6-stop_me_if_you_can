@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# terminating process without kill or killall
+process="4-to_infinity_and_beyond"
+pkill -f "$process"
