@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# terminating process without kill or killall
+process="7-highlander"
+pkill -f -SIGTERM "$process"
