@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# process and PID of a script
+# if SIGIN and SIGQUIT is received deletion of mypid and exitting occurs
+# displays an output if receives SIGINT
+# saves its pid in a file
+# infinte loop to print an output
+pidfile="/var/run/myscript.pid"
+function trigger()
+{
+	rm -f "$pidfile"
+	exit
+}
+
+echo "$$" > "$pidfile"
+
+function trigger_sigint()
+{
+	echo 'Y U no love me?!'
+}
+
+while true
+do
+	echo 'To infinity and beyond'
+	sleep 2
+	trap 'echo I hate the kill command && trigger' SIGTERM
+	trap trigger SIGQUIT
+	trap trigger_sigint SIGINT
+done
