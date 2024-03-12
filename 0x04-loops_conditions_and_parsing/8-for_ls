@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Displaying files in the current directory minus hidden files
+contents=$(ls)
+for i in $contents
+do
+	echo "$i" | cut -d '-' -f2
+done
