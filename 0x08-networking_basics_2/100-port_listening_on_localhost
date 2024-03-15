@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# establiching connection to the localhost
+# in listening mode for write and read accross the already established networks
+nc -l localhost 98
