@@ -1,5 +1,5 @@
 #!usr/bin/env bash
-# client configuration file
+# client configuration  file
 sudo nano /etc/ssh/sshd_config
 IdentityFile ~/.ssh/school
 PasswordAuthentication no
