@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# installing first nginx server and configuring
+apt-get -y update
+apt-get install -y nginx
+
+# Configure Nginx to listen on port 80
+sed ufw allow "Nginx HTTP"
+
+echo "<html><body>Hello World!</body></html>" > /var/www/html/index.html
+
+sudo service nginx start
