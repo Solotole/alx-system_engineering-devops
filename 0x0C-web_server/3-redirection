@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# installing first nginx server and configuring
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+# Configure Nginx to listen on port 80
+sed ufw allow "Nginx HTTP"
+
+echo "Hello World!" > sudo /var/www/html/index.nginx-debian.html
+sed -i "37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
+sudo service nginx start
