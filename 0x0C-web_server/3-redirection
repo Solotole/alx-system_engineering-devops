@@ -1,25 +1,12 @@
 #!/usr/bin/env bash
-# configures a new ubuntu machine by installing
-# Nginx where it should be listening on port 80
-# Serve a page that would return a Hello World string
-sudo apt-get update -y -qq && \
-         sudo apt-get install nginx -y
+# installing first nginx server and configuring
+# 301 riderection web configuration
+sudo apt-get -y update
+sudo apt-get install -y nginx
 
-# starting nginx service
+# Configure Nginx to listen on port 80
+sed ufw allow "Nginx HTTP"
+
+echo "Hello World!" > sudo /var/www/html/index.nginx-debian.html
+sed -i "37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;" /etc/nginx/sites-available/default
 sudo service nginx start
-
-# allowing nginx on firewall
-sudo ufw allow 'Nginx HTTP'
-
-# Give the user ownership to website files for easy editing
-sudo chown -R "$USER":"$USER" /var/www/html
-sudo chmod -R 755 /var/www
-
-# Backup default index
-cp /var/www/html/index.nginx-debian.html /var/www/html/index.nginx-debian.html.bckp
-
-# Creating new index
-sudo sed - i '37i\rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
-
-# Restarting nginx
-sudo service nginx restart
