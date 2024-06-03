@@ -2,6 +2,8 @@
 """ script to send request and get response
     from an open source API and represent in csv format
 """
+
+
 if __name__ == '__main__':
     import csv
     import requests
