@@ -17,7 +17,7 @@ if __name__ == '__main__':
             if task.get('completed'):
                 completed += 1
 
-    print('Employee {} is done with tasks ({}/{}):'
+    print('Employee {} is done with tasks({}/{}):'
           .format(user, completed, total))
     for task in todos.json():
         if task.get('completed') and task.get('userId') == int(sys.argv[1]):
