@@ -16,7 +16,7 @@ if __name__ == '__main__':
         user_name = user.get('username')
         user_id = user.get('id')
         for task in todos.json():
-            if usr_id == task.get('userId')
+            if usr_id == task.get('userId'):
                 tasks = task.get('title')
                 status = task.get('completed')
                 mini_dict['username'] = user_name
