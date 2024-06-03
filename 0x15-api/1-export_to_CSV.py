@@ -14,7 +14,8 @@ if __name__ == '__main__':
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
 
     with open(file_name, 'w') as files:
-        csv_writer = csv.writer(files)
+        csv_writer = csv.writer(files, delimeter=',', quotechar='"'
+                                quoting=csv.QUOTE_ALL, lineterminator='\n')
         for task in todos.json():
             if task.get('userId') == int(sys.argv[1]):
                 csv_writer.writerow([userid, user,
