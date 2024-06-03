@@ -12,11 +12,12 @@ if __name__ == '__main__':
     r = requests.get('https://jsonplaceholder.typicode.com/users/{}'
                      .format(sys.argv[1]))
     user = r.json().get('username')
-    userid = r.json().get('userId')
+    userid = r.json().get('id')
     todos = requests.get('https://jsonplaceholder.typicode.com/todos')
 
     with open(file_name, 'w') as files:
-        csv_writer = csv.writer(files)
+        csv_writer = csv.writer(files, delimiter=',', quotechar='"',
+                                quoting=csv.QUOTE_ALL)
         for task in todos.json():
             if task.get('userId') == int(sys.argv[1]):
                 csv_writer.writerow([userid, user,
