@@ -24,10 +24,10 @@ if __name__ == '__main__':
                 mini_dict['completed'] = status
                 lists.append(mini_dict)
                 mini_dict = {}
-                main_dict[user_id] = lists
-                lists = []
             else:
                 continue
+        main_dict[user_id] = lists
+        lists = []
 
     with open('todo_all_employees.json', 'w') as files:
         json_object = json.dumps(main_dict)
