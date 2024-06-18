@@ -30,7 +30,7 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
                             word_count, r.json()['data']['after'])
     else:
         url = ('https://www.reddit.com/r/{}/hot.json?after={}'
-                .format(subreddit, page_after))
+               .format(subreddit, page_after))
         r = get(url, headers=headers, allow_redirects=False)
         if r.status_code == 200:
             for child in r.json()['data']['children']:
@@ -50,7 +50,7 @@ def count_words(subreddit, word_list, word_count=[], page_after=None):
                     i = word_list.index(key_word)
                     if word_count[i] != 0:
                         dicto[word_list[i]] = (word_count[i] *
-                                                word_list.count(word_list[i]))
+                                               word_list.count(word_list[i]))
 
                 for key, value in sorted(dicto.items(),
                                          key=lambda x: (-x[1], x[0])):
