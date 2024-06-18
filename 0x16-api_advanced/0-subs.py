@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     complete_url = url.format(subreddit)
     headers = {'User-Agent': 'Custom'}
     response = requests.get(complete_url,
-                            headers=headers)
+                            headers=headers, allow_redirects=False)
     if response.status_code != 200:
         return 0
     elif response.status_code == 200:
